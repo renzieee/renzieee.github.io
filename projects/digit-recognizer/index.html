@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Handwritten Digit Recognizer — Renzie Gacot</title>
+<meta name="description" content="Draw a digit and a neural network trained in Python guesses it live in your browser. A project by Renzie Gacot.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+<header class="top">
+  <a href="../../index.html#work" class="back">← Back to portfolio</a>
+  <a href="https://github.com/renzieee" target="_blank" rel="noopener" class="gh">GitHub ↗</a>
+</header>
+
+<main class="wrap">
+  <p class="eyebrow">Personal project · Python + JavaScript</p>
+  <h1>Handwritten Digit Recognizer</h1>
+  <p class="lede">Draw any digit from 0 to 9 in the box. A small neural network I trained in Python reads it and guesses — live, right here in your browser.</p>
+  <p class="tip"><b>Tip:</b> write your <b>7</b> with a line through the middle, and draw big in the centre of the box — that's how the training data was written.</p>
+
+  <section class="demo">
+    <div class="pad-wrap">
+      <canvas id="pad" width="280" height="280" aria-label="Drawing area — draw a digit"></canvas>
+      <div class="pad-actions">
+        <span class="hint">draw here ✎</span>
+        <button id="clear" type="button">Clear</button>
+      </div>
+    </div>
+
+    <div class="result">
+      <div class="guess-box">
+        <p class="label">My guess</p>
+        <p id="guess" class="guess">?</p>
+        <p id="conf" class="conf">Draw a digit from 0 to 9</p>
+      </div>
+      <div class="seen">
+        <p class="label">What the model sees (8×8)</p>
+        <div id="grid" class="grid" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <div class="probs">
+      <p class="label">Confidence for each digit</p>
+      <ol id="bars" class="bars"></ol>
+    </div>
+  </section>
+
+  <section class="how">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><span>1</span><div><h3>Training in Python</h3><p>I used scikit-learn's <em>digits</em> dataset — 1,797 handwritten digits, each 8×8 pixels. 80% were used to train a neural network (64 inputs → 64 hidden neurons with ReLU → 10 outputs), and 20% were kept aside to test it.</p></div></li>
+      <li><span>2</span><div><h3>Making it forgiving</h3><p>People rarely draw perfectly centred, so I added copies of every training image shifted by one pixel in each direction (data augmentation). That made the model handle messier drawings.</p></div></li>
+      <li><span>3</span><div><h3>Running in the browser</h3><p>The trained weights are exported to JSON. JavaScript crops your drawing, scales it into the same 8×8 format as the training data, and runs the same maths the model uses in Python — no server needed.</p></div></li>
+    </ol>
+
+    <div class="stats">
+      <div><b id="acc">–</b><span>accuracy on 360 test images it never saw</span></div>
+      <div><b>1,797</b><span>images in the dataset</span></div>
+      <div><b>~4,800</b><span>trainable parameters</span></div>
+    </div>
+
+    <figure class="chart">
+      <img src="confusion_matrix.png" alt="Confusion matrix showing predicted vs actual digits on the test set" width="780" height="690">
+      <figcaption>Confusion matrix on the test set — the diagonal is correct answers. Most mistakes were 8s read as 1s.</figcaption>
+    </figure>
+    <figure class="chart">
+      <img src="sample_predictions.png" alt="Sixteen sample test digits with the model's predictions" width="1200" height="390">
+      <figcaption>Sample predictions on test images.</figcaption>
+    </figure>
+
+    <h2>What I learned</h2>
+    <ul class="learned">
+      <li>How to split data properly so the accuracy number is honest.</li>
+      <li>Why preprocessing matters: the model only works well when browser drawings look like the training data.</li>
+      <li>Datasets carry habits: the people who wrote these digits crossed their 7s, so the model struggles with a plain 7. Real-world AI is only as good as the data behind it.</li>
+      <li>How a neural network's forward pass actually works — I re-wrote it in JavaScript by hand.</li>
+    </ul>
+    <p class="limits"><strong>Limitations:</strong> the dataset is small and low-resolution (8×8), so very thin, tilted or unusual handwriting can confuse it. A bigger dataset like MNIST and a convolutional network would be the next step.</p>
+    <p class="files">Code: <code>train.py</code> (Python training) · <code>app.js</code> (browser demo) · <code>model.json</code> (exported weights)</p>
+  </section>
+</main>
+
+<footer class="foot">© <span id="y">2026</span> Renzie Gacot · <a href="../../index.html">renzieee.github.io</a></footer>
+
+<script src="model.js"></script>
+<script src="app.js"></script>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

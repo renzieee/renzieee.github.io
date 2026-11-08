@@ -25,3 +25,8 @@ Files:
    - After about a minute your site is live at  https://renzieee.github.io
 
 3) YOUR CV is already included in the cv folder. Upload the cv folder to GitHub too.
+
+4) PROJECTS FOLDER: projects/digit-recognizer/ is the AI demo.
+   Upload the whole "projects" folder to GitHub too. It will be live at
+   https://renzieee.github.io/projects/digit-recognizer/
+   train.py is the Python code that trains the model (python train.py).

@@ -121,7 +121,7 @@ h3{font-size:1.35rem}
 .filter:hover{color:var(--text)}
 .filter.is-active{background:var(--text);color:var(--bg)}
 
-.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:56px 32px}
 .project{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .3s,transform .3s}
 .project:hover{border-color:#39405c;transform:translateY(-3px)}
 .project.is-hidden{display:none}

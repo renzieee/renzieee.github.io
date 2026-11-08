@@ -84,7 +84,7 @@
       </div>
       <div class="prose reveal">
         <p>I'm Renzie, a Creative Computing graduate from Bath Spa University (RAK campus), living in Dubai. My degree covered <strong>software and web development</strong>, <strong>AI and data analysis</strong>, <strong>game development</strong> and <strong>UX design</strong> — and I received honours in two consecutive semesters.</p>
-        <p>I built a car dealership website, a tool that helps students track their assignments, a survival game in Unity and an awareness poster on global hunger. Each taught me something different: how to structure a page so it's easy to use, how to plan before writing code, and how to make a message land visually.</p>
+        <p>I built a handwritten digit recognizer that runs a Python-trained neural network in the browser, a car dealership website, a tool that helps students track their assignments, a survival game in Unity and an awareness poster on global hunger. Each taught me something different: how to structure a page so it's easy to use, how to plan before writing code, and how to make a message land visually.</p>
         <p>Alongside my studies I spent over two years at major Dubai events like GITEX, Big 5 and Gulfood, and coordinating professional training programmes. That taught me to stay calm when live tech fails, handle data carefully and communicate clearly. Now I'd like to bring all of that to a development team.</p>
       </div>
     </div>
@@ -117,10 +117,11 @@
         <div>
           <p class="eyebrow">02 — Selected work</p>
           <h2>Projects</h2>
-          <p class="hand">click any project for the video or files ↓</p>
+          <p class="hand">click a project to try it, watch it or see the files ↓</p>
         </div>
         <div class="filters" role="tablist" aria-label="Filter projects">
           <button class="filter is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="filter" data-filter="ai" role="tab" aria-selected="false">AI</button>
           <button class="filter" data-filter="web" role="tab" aria-selected="false">Web</button>
           <button class="filter" data-filter="game" role="tab" aria-selected="false">Game</button>
           <button class="filter" data-filter="design" role="tab" aria-selected="false">Design</button>
@@ -129,7 +130,21 @@
 
       <div class="projects">
 
-        <article class="project project--wide reveal" data-cat="web">
+        <article class="project project--wide reveal" data-cat="ai">
+          <a class="project__media taped" href="projects/digit-recognizer/index.html" aria-label="Try the Handwritten Digit Recognizer">
+            <img src="img/digit-recognizer.jpg" alt="Digit recognizer demo: a hand-drawn 8 recognised with 100% confidence" loading="lazy">
+            <span class="play">✎ Try it live</span>
+          </a>
+          <div class="project__body">
+            <p class="meta">AI · Personal project</p>
+            <h3>Handwritten Digit Recognizer</h3>
+            <p>Draw a number and a neural network guesses it instantly. I trained the model in Python with scikit-learn (97.8% accuracy on unseen test images), then exported the weights and rewrote the prediction step in JavaScript so it runs right in the browser.</p>
+            <ul class="tags"><li>Python</li><li>scikit-learn</li><li>Neural network</li><li>JavaScript</li><li>Canvas</li></ul>
+            <a class="link" href="projects/digit-recognizer/index.html">Try the live demo →</a>
+          </div>
+        </article>
+
+        <article class="project project--wide project--flip reveal" data-cat="web">
           <a class="project__media taped" href="https://youtu.be/LPAv-gMTaPw" target="_blank" rel="noopener" aria-label="Watch the Automobile Excellence demo">
             <img src="img/automobile.png" data-fallback="https://profile-site-launch.lovable.app/lovable-uploads/7ec69cc7-01b5-4ee4-a5d0-b192c2c715b7.png" alt="Automobile Excellence car dealership website homepage" loading="lazy">
             <span class="play">▶ Watch demo</span>
@@ -143,7 +158,7 @@
           </div>
         </article>
 
-        <article class="project project--wide project--flip reveal" data-cat="game">
+        <article class="project project--wide reveal" data-cat="game">
           <a class="project__media taped" href="https://youtu.be/TVNm0_HdlcQ" target="_blank" rel="noopener" aria-label="Watch the Post Apocalyptic Escape gameplay">
             <img src="img/apocalyptic.png" data-fallback="https://profile-site-launch.lovable.app/lovable-uploads/42c72a1e-6f0a-41fe-bad6-de00e5b0418a.png" alt="Post Apocalyptic Escape game screenshot" loading="lazy">
             <span class="play">▶ Watch gameplay</span>
