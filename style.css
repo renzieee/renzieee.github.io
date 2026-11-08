@@ -263,3 +263,13 @@ h3{font-size:1.35rem}
 .gh__name b{color:var(--text);font-weight:600}
 .gh__hint{position:relative;font:500 1.3rem/1 var(--hand);color:var(--accent);transform:rotate(-3deg)}
 .project:hover .gh__mark{transform:translateY(-4px) rotate(-6deg);fill:#fff}
+
+/* poster: show the whole thing instead of cropping */
+.project__media--poster{background:#75605f}
+.project__media--poster img{object-fit:cover}
+.project:hover .project__media--poster img{transform:scale(1.03)}
+
+/* "hardest part" note on project cards */
+.challenge{font-size:.93rem!important;color:#c3c8da!important;padding:12px 14px;border-left:2px solid var(--accent);background:rgba(255,122,89,.06);border-radius:0 8px 8px 0}
+.challenge span{display:block;font:600 1.15rem/1.1 var(--hand);color:var(--accent);margin-bottom:2px}
+.project__body strong{color:var(--text);font-weight:600}

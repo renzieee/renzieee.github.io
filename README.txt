@@ -8,15 +8,7 @@ Files:
   img/         put your images here
   cv/          your CV (Renzie_Gacot_CV.pdf) - to update it, replace this file with the same name
 
-1) ADD YOUR IMAGES (put them in the img folder with these exact names):
-   img/renzie.jpg       your photo (already included)
-   img/automobile.png   Automobile Excellence screenshot
-   img/apocalyptic.png  Post Apocalyptic Escape screenshot
-   img/tracker.png      Assignment Tracker screenshot
-   img/hunger.png       Draw the Line on Hunger poster
-
-   Until you add them, the site loads the same images from your old Lovable site
-   automatically, so nothing looks broken in the meantime.
+1) IMAGES: all images are already in the img folder. The site no longer depends on Lovable.
 
 2) PUT IT ONLINE FREE WITH GITHUB PAGES:
    - On github.com/renzieee create a new repo named:  renzieee.github.io

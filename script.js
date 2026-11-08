@@ -1,10 +1,3 @@
-// If a project image isn't in /img yet, load the hosted copy instead.
-document.querySelectorAll('img[data-fallback]').forEach(img => {
-  const swap = () => { if (img.src !== img.dataset.fallback) img.src = img.dataset.fallback; };
-  img.addEventListener('error', swap, { once: true });
-  if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) swap();
-});
-
 // Sticky nav border + mobile menu
 const nav = document.querySelector('.nav');
 const toggle = document.getElementById('navToggle');
@@ -59,7 +52,8 @@ filters.forEach(btn => btn.addEventListener('click', () => {
 const lb = document.getElementById('lightbox');
 const lbImg = lb.querySelector('img');
 document.querySelectorAll('[data-lightbox]').forEach(el => el.addEventListener('click', () => {
-  lbImg.src = document.getElementById('posterImg').currentSrc;
+  const poster = document.getElementById('posterImg');
+  lbImg.src = poster.dataset.full || poster.currentSrc;
   lb.hidden = false;
   lb.querySelector('button').focus();
 }));
